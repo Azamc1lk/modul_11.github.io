@@ -13,10 +13,10 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 200px 200px;
 }
-.img_1{
+.img{
     width: 150px ;
 }
 
-item{
+.item{
     text-align: center;
 }
