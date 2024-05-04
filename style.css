@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-size: 18px;
-    color:blue;
-    background: white;
+    color: var(--tg-theme-text-color);
+    background: var(--tg-theme-bg-color);
 }
 .container{
     max-width: 400px;
@@ -13,9 +13,10 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 200px 200px;
 }
-.img{
+.img_1{
     width: 150px ;
 }
+
 item{
     text-align: center;
 }
