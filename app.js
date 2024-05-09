@@ -8,14 +8,24 @@ let btn1 = document.getElementById("btn1");
 let btn2 = document.getElementById("btn2");
 let item = ""
 btn1.addEventListener("click", function () {
-    tg.MainButton.setText("btn1 bosildi");
+    tg.MainButton.setText("kola bosildi");
     item = " button 1 bosildi"
     tg.MainButton.show();
 });
 
 btn2.addEventListener("click", function () {
-    tg.MainButton.setText("btn2 bosildi");
+    tg.MainButton.setText("lavash bosildi");
     item = " button 2 bosildi"
+    tg.MainButton.show();
+});
+btn3.addEventListener("click", function () {
+    tg.MainButton.setText("burger bosildi");
+    item = " button 3 bosildi"
+    tg.MainButton.show();
+});
+btn4.addEventListener("click", function () {
+    tg.MainButton.setText("burger bosildi");
+    item = " button 4 bosildi"
     tg.MainButton.show();
 });
 
