@@ -12,4 +12,4 @@ async def start(msg: types.Message):
 
 @dp.message(F.func(lambda msg: msg.web_app_data.data == "TestMessage"))
 async def get_btn(msg: types.Message):
-    await msg.answer(msg.web_app_data)
+    await msg.answer(msg.web_app_data.data)
