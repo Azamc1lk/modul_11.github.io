@@ -9,24 +9,28 @@ let btn2 = document.getElementById("btn2");
 let item = ""
 btn1.addEventListener("click", function () {
     tg.MainButton.setText("kola bosildi");
-    item = " kola  bosildi narx:3$"
+    item = " kola tanlandi"
+        "narx:3$"
     tg.MainButton.show();
 });
 
 btn2.addEventListener("click", function () {
     tg.MainButton.setText("lavash bosildi");
-    item = " lavash  bosildi narx:9$"
+    item = " lavash tanlandi  "
+        " narx:9$"
 
     tg.MainButton.show();
 });
 btn3.addEventListener("click", function () {
     tg.MainButton.setText("burger bosildi");
-    item = " burger bosildi narx:8$"
+    item = " burger tanlandi"
+        "narx:8$"
     tg.MainButton.show();
 });
 btn4.addEventListener("click", function () {
     tg.MainButton.setText("pizza bosildi");
-    item = " pizza bosildi narxi:4$"
+    item = " pizza tanlandi"
+        "narxi:4$"
     tg.MainButton.show();
 });
 
