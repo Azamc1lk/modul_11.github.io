@@ -18,7 +18,7 @@ let abtn1 = document.getElementById("abtn1");
 abtn1.addEventListener("click", function () {
     count1.innerText = n_count1 += 1;
     count1.style.display = "inline-block";
-    tg.MainButton.setText("Burger");
+    tg.MainButton.setText("Kola");
     tg.MainButton.show();
     item = "Burger/3/" + count1.innerText;
 
@@ -29,7 +29,7 @@ rbtn1.addEventListener("click", function () {
     }
     count1.style.display = "inline-block";
     item = "Burger/3/" + count1;
-    tg.MainButton.setText("Burger");
+    tg.MainButton.setText("Kola");
     tg.MainButton.show();
 });
 // ------------------2--------------------
@@ -45,7 +45,7 @@ rbtn2.addEventListener("click", function () {
     }
 
     count2.style.display = "inline-block";
-    tg.MainButton.setText("KFC");
+    tg.MainButton.setText("Pizza");
     tg.MainButton.show();
 });
 
@@ -54,7 +54,7 @@ rbtn2.addEventListener("click", function () {
 abtn2.addEventListener("click", function (){
     count2.innerText = n_count2 += 1;
     count2.style.display = "inline-block";
-    tg.MainButton.setText("KFC");
+    tg.MainButton.setText("Pizza");
     tg.MainButton.show();
 });
 
@@ -71,7 +71,7 @@ rbtn3.addEventListener("click", function () {
     }
 
     count3.style.display = "inline-block";
-    tg.MainButton.setText("LAVASH");
+    tg.MainButton.setText("Lavash");
     tg.MainButton.show();
 });
 
@@ -80,7 +80,7 @@ rbtn3.addEventListener("click", function () {
 abtn3.addEventListener("click", function (){
     count3.innerText = n_count3 += 1;
     count3.style.display = "inline-block";
-    tg.MainButton.setText("LAVASH");
+    tg.MainButton.setText("Lavash");
     tg.MainButton.show();
 });
 
@@ -97,7 +97,7 @@ rbtn4.addEventListener("click", function () {
     }
 
     count4.style.display = "inline-block";
-    tg.MainButton.setText("PIZZA");
+    tg.MainButton.setText("Burger");
     tg.MainButton.show();
 });
 
@@ -106,7 +106,7 @@ rbtn4.addEventListener("click", function () {
 abtn4.addEventListener("click", function (){
     count4.innerText = n_count4 += 1;
     count4.style.display = "inline-block";
-    tg.MainButton.setText("PIZZA");
+    tg.MainButton.setText("Burger");
     tg.MainButton.show();
 });
 
