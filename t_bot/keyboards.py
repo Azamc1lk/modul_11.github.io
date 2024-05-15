@@ -3,6 +3,6 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeybo
 
 web_app = WebAppInfo(url="https://azamc1lk.github.io/modul_11.github.io/")
 
-app_ikb = ReplyKeyboardMarkup(keyboard=[
+app_kb = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Mini app', web_app=web_app)]
 ], resize_keyboard=True)

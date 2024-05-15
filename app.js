@@ -28,7 +28,7 @@ rbtn1.addEventListener("click", function () {
         count1.innerText = n_count1 -= 1;
     }
     count1.style.display = "inline-block";
-    item = "Burger/3/" + count1;
+    item = "kola/3/" + count1;
     tg.MainButton.setText("Kola");
     tg.MainButton.show();
 });

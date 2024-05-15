@@ -16,6 +16,7 @@ async def start(msg: types.Message):
 @dp.message(F.func(lambda msg: msg.web_app_data.data))
 async def get_btn(msg: types.Message):
     text = msg.web_app_data.data
+    print(text)
     title = text.split('/')[0]
     price = int(text.split('/')[1])
     quantity = int(text.split('/')[2])
