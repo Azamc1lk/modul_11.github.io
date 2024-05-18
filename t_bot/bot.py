@@ -9,7 +9,7 @@ bot = Bot(token=BOT_TOKEN)
 
 
 async def main():
-    print('Bot started')
+    print('Bot started') 
     from handlers import dp
     await dp.start_polling(bot)
 
