@@ -2,8 +2,7 @@ import os
 from aiogram import Dispatcher, F, Bot
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
-from aiogram.fsm.storage.memory import MemoryStorage
-from keyboards import apple_kb, buy_ikb
+from keyboards import app_kb, buy_ikb
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,64 +11,48 @@ PROVIDER_TOKEN = os.getenv('PROVIDER_TOKEN')
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 bot = Bot(token=BOT_TOKEN)
-dp = Dispatcher(storage=MemoryStorage())
-
-user_cart = {}
+dp = Dispatcher()
 
 
 @dp.message(CommandStart())
 async def start(msg: Message):
-    await msg.answer("Salom", reply_markup=apple_kb)
+    await msg.answer("Salom", reply_markup=app_kb)
 
 
-@dp.message(Command("pay"))
-async def order(msg: Message):
-    user_id = msg.from_user.id
-    if user_id not in user_cart:
-        await msg.answer("Savatchangiz bo'sh!")
-        return
-
-    items = user_cart[user_id]
-    prices = [LabeledPrice(label=item['title'], amount=item['price'] * 100) for item in items]
-
+@dp.message(F.func(lambda msg: msg.web_app_data.data if msg.web_app_data else None))
+async def get_btn(msg: Message):
+    text = msg.web_app_data.data
+    product_data = text.split("|")
+    products = {}
+    for i in range(len(product_data)):
+        if len(product_data[i].split("/")) >= 3:
+            title = product_data[i].split('/')[0]
+            price = product_data[i].split('/')[1]
+            quantity = product_data[i].split('/')[2]
+            product = {
+                "title": title,
+                "price": int(price),
+                "quantity": int(quantity)
+            }
+            products[i] = product
+    print(products)
     await bot.send_invoice(
         chat_id=msg.chat.id,
-        title="Telegram bot orqali tolov!",
-        description="Tolov qmasn erkemassan!",
+        title="Оплата",
+        description="Оплата через Telegram bot",
         provider_token=PROVIDER_TOKEN,
         currency="UZS",
         payload="Ichki malumot",
-        prices=prices
-    )
+        prices=[LabeledPrice(label=f"{product['title']}({product['quantity']})",
+                             amount=(product["price"] * product["quantity"]) * 100)
+                for product in products.values()], )
 
 
 @dp.pre_checkout_query()
-async def pre_checkout_query(checkout_query: PreCheckoutQuery):
-    await bot.answer_pre_checkout_query(checkout_query.id, ok=True)
+async def pre_checkout(query: PreCheckoutQuery):
+    await bot.answer_pre_checkout_query(query.id, ok=True)
 
 
-@dp.message(F.func(lambda msg: msg.web_app_data.data))
-async def get_btn(msg: Message):
-    text = msg.web_app_data.data
-    products = text.split("|")
-    user_id = msg.from_user.id
-    user_cart[user_id] = []
-
-    for product in products:
-        if len(product.split("/")) >= 3:
-            title = product.split('/')[0]
-            price = float(product.split('/')[1])
-            quantity = int(product.split('/')[2])
-            user_cart[user_id].append({
-                'title': title,
-                'price': price * quantity  # Store total price for each product
-            })
-            await msg.answer(
-                text=f"Nomi: {title}\n"
-                     f"Narxi: {price}\n"
-                     f"Soni: {quantity}\n"
-                     f"Umumiy narxi: {quantity * price} UZS"
-            )
-
-    summa = sum(item['price'] for item in user_cart[user_id])
-    await msg.answer(text=f"Tolanishi kerak: {summa} UZS", reply_markup=buy_ikb)
+@dp.message(F.func(lambda msg: msg.successful_payment if msg.successful_payment else None))
+async def successful_payment(msg: Message):
+    await msg.answer("To'lov uchun raxmat!")
