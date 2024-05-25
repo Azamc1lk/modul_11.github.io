@@ -1,7 +1,8 @@
 import asyncio
 from dotenv import load_dotenv
 
-# from aiogram.client.session.aiohttp import AiohttpSession
+# from aiogram.client.session.aiohttp impor
+# t AiohttpSession
 
 
 load_dotenv()

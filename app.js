@@ -117,9 +117,9 @@ abtn4.addEventListener("click", function () {
 
 // -------------------5-------------------
 
-count4 = document.getElementById("count4");
-rbtn4 = document.getElementById("rbtn4");
-abtn4 = document.getElementById("abtn4");
+count5 = document.getElementById("count5");
+rbtn5 = document.getElementById("rbtn5");
+abtn5 = document.getElementById("abtn5");
 let item5 = "";
 let n_count5 = 0;
 rbtn5.addEventListener("click", function () {
@@ -128,7 +128,7 @@ rbtn5.addEventListener("click", function () {
     }
 
     count5.style.display = "inline-block";
-    item4 = "fri/15000/" + count5.innerText;
+    item5 = "fri/15000/" + count5.innerText;
 
     tg.MainButton.setText("Оплата");
     tg.MainButton.show();
@@ -143,6 +143,35 @@ abtn5.addEventListener("click", function () {
     tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
+// -------------------6-------------------
+count6 = document.getElementById("count6");
+rbtn6 = document.getElementById("rbtn6");
+abtn6 = document.getElementById("abtn6");
+let item6 = "";
+let n_count6 = 0;
+rbtn5.addEventListener("click", function () {
+    if (n_count6 > 0) {
+        count5.innerText = n_count6 -= 1;
+    }
+
+    count5.style.display = "inline-block";
+    item6 = "donar/35000/" + count6.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
+
+
+abtn6.addEventListener("click", function () {
+    count6.innerText = n_count6+= 1;
+    count6.style.display = "inline-block";
+    item5 = "fri/15000/" + count6.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
+
+
 Telegram.WebApp.onEvent("mainButtonClicked", function () {
     data = item1 + "|" + item2 + "|" + item3 + "|" + item4 + "|" + item5
     tg.sendData(data);
