@@ -204,9 +204,9 @@ rbtn8 = document.getElementById("rbtn8");
 abtn8 = document.getElementById("abtn8");
 let item8 = "";
 let n_count8 = 0;
-rbtn7.addEventListener("click", function () {
+rbtn8.addEventListener("click", function () {
     if (n_count8 > 0) {
-        count7.innerText = n_count8 -= 1;
+        count8.innerText = n_count8 -= 1;
     }
 
     count8.style.display = "inline-block";
@@ -225,9 +225,63 @@ abtn8.addEventListener("click", function () {
     tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
+// -------------------9-------------------
+count9 = document.getElementById("count9");
+rbtn9 = document.getElementById("rbtn9");
+abtn9 = document.getElementById("abtn9");
+let item9 = "";
+let n_count9 = 0;
+rbtn9.addEventListener("click", function () {
+    if (n_count9 > 0) {
+        count9.innerText = n_count9 -= 1;
+    }
+
+    count9.style.display = "inline-block";
+    item9 = "cofe/10000/" + count9.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
+
+
+abtn9.addEventListener("click", function () {
+    count9.innerText = n_count9+= 1;
+    count9.style.display = "inline-block";
+    item9 = "cofe/10000/" + count9.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
+// -------------------10-------------------
+count10 = document.getElementById("count10");
+rbtn10 = document.getElementById("rbtn10");
+abtn10 = document.getElementById("abtn10");
+let item10 = "";
+let n_count10 = 0;
+rbtn10.addEventListener("click", function () {
+    if (n_count10 > 0) {
+        count10.innerText = n_count10 -= 1;
+    }
+
+    count10.style.display = "inline-block";
+    item10 = "KFC/50000/" + count10.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
+
+
+abtn10.addEventListener("click", function () {
+    count10.innerText = n_count10+= 1;
+    count10.style.display = "inline-block";
+    item10 = "KFC/50000/" + count10.innerText;
+
+    tg.MainButton.setText("Оплата");
+    tg.MainButton.show();
+});
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function () {
-    data = item1 + "|" + item2 + "|" + item3 + "|" + item4 + "|" + item5 + "|" + item6 + "|" + item7 + "|" + item8
+    data = item1 + "|" + item2 + "|" + item3 + "|" + item4 + "|" + item5 + "|" + item6 + "|" + item7 + "|" + item8 + "|" + item9 + "|" + item10
     tg.sendData(data);
 });
