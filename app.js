@@ -252,6 +252,7 @@ abtn9.addEventListener("click", function () {
     tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
+
 // -------------------10-------------------
 count10 = document.getElementById("count10");
 rbtn10 = document.getElementById("rbtn10");
@@ -274,11 +275,12 @@ rbtn10.addEventListener("click", function () {
 abtn10.addEventListener("click", function () {
     count10.innerText = n_count10+= 1;
     count10.style.display = "inline-block";
-    item10 = "KFC/50000/" + count10.innerText;
+    item10 = "KFC/10000/" + count10.innerText;
 
     tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
+
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function () {
